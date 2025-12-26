@@ -1,123 +1,102 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const grid = document.getElementById('resultsGrid');
-    const searchInput = document.getElementById('searchInput');
-    const sortSelect = document.getElementById('sortSelect');
-    const filterFuzzy = document.getElementById('filterFuzzy');
-    const filterPot = document.getElementById('filterPot');
-    
-    let db = []; 
+  const grid = document.getElementById('resultsGrid');
+  const searchInput = document.getElementById('searchInput');
+  const sortSelect = document.getElementById('sortSelect');
+  const filterFuzzy = document.getElementById('filterFuzzy');
+  const filterPot = document.getElementById('filterPot');
 
-    fetch('rice_cookers.json')
-        .then(response => response.json())
-        .then(data => {
-            db = data;
-            document.getElementById('dataTimestamp').textContent = new Date().toLocaleDateString();
-            renderGrid(db);
-        })
-        .catch(err => {
-            grid.innerHTML = `<div class="error">Error loading database. Ensure rice_cookers.json exists.</div>`;
-            console.error(err);
-        });
+  let db = [];
 
-    function renderGrid(data) {
-        grid.innerHTML = '';
-        
-        if (data.length === 0) {
-            grid.innerHTML = '<div class="no-results">No models match your criteria.</div>';
-            return;
-        }
+  // ---------- LOAD DATA ----------
+  fetch('./rice_cookers.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to load JSON: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      // IMPORTANT: data is now an object, not an array
+      db = Array.isArray(data.items) ? data.items : [];
 
-        data.forEach(item => {
-            const card = document.createElement('div');
-            card.className = 'card';
-            
-            const capProv = item.capacity.provenance;
-            const capClass = `prov-${capProv}`;
-            const capTooltip = capProv === 'inferred' ? 'Inferred from similar models' : 'Explicitly stated by manufacturer';
+      const ts = document.getElementById('dataTimestamp');
+      if (ts) {
+        ts.textContent = new Date().toLocaleDateString();
+      }
 
-            const fuzzy = item.technology.has_fuzzy_logic;
-            const fuzzyProv = fuzzy.provenance;
-            const fuzzyClass = `prov-${fuzzyProv}`;
-            const fuzzyLabel = fuzzy.value ? 'Yes' : 'No';
+      updateView();
+    })
+    .catch(err => {
+      console.error(err);
+      grid.innerHTML = `<p class="error">Failed to load data.</p>`;
+    });
 
-            card.innerHTML = `
-                <div class="card-header">
-                    <div>
-                        <div class="brand">${item.brand}</div>
-                        <h2 class="model">${item.model || 'Unknown Model'}</h2>
-                    </div>
-                </div>
-                
-                <div class="spec-row">
-                    <span>Capacity (Uncooked):</span>
-                    <span title="${capTooltip} - ${item.capacity.raw_statement}">
-                        <span class="provenance-dot ${capClass}"></span>
-                        <strong>${item.capacity.value} Cups</strong>
-                    </span>
-                </div>
+  // ---------- RENDER ----------
+  function renderGrid(items) {
+    grid.innerHTML = '';
 
-                <div class="spec-row">
-                    <span>Fuzzy Logic:</span>
-                    <span title="Data source: ${fuzzyProv}">
-                        <span class="provenance-dot ${fuzzyClass}"></span>
-                        ${fuzzyLabel}
-                    </span>
-                </div>
-
-                <div class="spec-row">
-                    <span>Inner Pot:</span>
-                    <span>${formatMaterial(item.construction.inner_pot_material)}</span>
-                </div>
-
-                ${renderIssues(item.analysis.aggregated_complaints)}
-
-                <div class="confidence-meter">
-                    Data Confidence: <strong>${item.analysis.confidence_score}/5</strong>
-                    <br>
-                    <small><a href="${item.analysis.source_url}" target="_blank">View Source</a></small>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
+    if (!items.length) {
+      grid.innerHTML = `<p>No matching rice cookers.</p>`;
+      return;
     }
 
-    function formatMaterial(str) {
-        if (!str) return 'Unknown';
-        return str.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-    }
+    items.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'card';
 
-    function renderIssues(issues) {
-        if (!issues || issues.length === 0) return '';
-        return `
-            <div class="issues-list">
-                <strong>Common Gripes:</strong>
-                <ul>${issues.map(i => `<li>${i}</li>`).join('')}</ul>
-            </div>
-        `;
-    }
+      const capacity = item.capacity?.value ?? 'Unknown';
+      const capacityUnit = item.capacity?.unit ?? '';
+      const fuzzy = item.features?.fuzzy_logic ? 'Yes' : 'No';
+      const removablePot = item.features?.removable_pot ? 'Yes' : 'No';
+      const confidence = item.analysis?.confidence ?? '—';
 
-    function updateView() {
-        let filtered = db.filter(item => {
-            const term = searchInput.value.toLowerCase();
-            const matchesText = (item.brand + ' ' + (item.model || '')).toLowerCase().includes(term);
-            const matchesFuzzy = filterFuzzy.checked ? item.technology.has_fuzzy_logic.value === true : true;
-            const matchesPot = filterPot.checked ? item.construction.is_inner_pot_removable === true : true;
-            return matchesText && matchesFuzzy && matchesPot;
-        });
+      card.innerHTML = `
+        <h3>${item.brand ?? ''} ${item.model ?? ''}</h3>
+        <p><strong>Capacity:</strong> ${capacity} ${capacityUnit}</p>
+        <p><strong>Fuzzy Logic:</strong> ${fuzzy}</p>
+        <p><strong>Removable Pot:</strong> ${removablePot}</p>
+        <p><strong>Confidence:</strong> ${confidence}</p>
+      `;
 
-        const sortMode = sortSelect.value;
-        filtered.sort((a, b) => {
-            if (sortMode === 'capacity_asc') return a.capacity.value - b.capacity.value;
-            if (sortMode === 'capacity_desc') return b.capacity.value - a.capacity.value;
-            if (sortMode === 'confidence_desc') return b.analysis.confidence_score - a.analysis.confidence_score;
-            return 0;
-        });
+      grid.appendChild(card);
+    });
+  }
 
-        renderGrid(filtered);
-    }
+  // ---------- FILTER + SORT ----------
+  function updateView() {
+    const query = searchInput.value.toLowerCase();
+    const sortMode = sortSelect.value;
 
-    searchInput.addEventListener('input', updateView);
-    sortSelect.addEventListener('change', updateView);
-    filterFuzzy.addEventListener('change', updateView);
-    filterPot.addEventListener('change', updateView);
+    let filtered = db.filter(item => {
+      const text =
+        `${item.brand ?? ''} ${item.model ?? ''}`.toLowerCase();
+
+      if (query && !text.includes(query)) return false;
+      if (filterFuzzy.checked && !item.features?.fuzzy_logic) return false;
+      if (filterPot.checked && !item.features?.removable_pot) return false;
+
+      return true;
+    });
+
+    filtered.sort((a, b) => {
+      const capA = a.capacity?.value ?? 0;
+      const capB = b.capacity?.value ?? 0;
+
+      const confA = a.analysis?.confidence ?? 0;
+      const confB = b.analysis?.confidence ?? 0;
+
+      if (sortMode === 'capacity_asc') return capA - capB;
+      if (sortMode === 'capacity_desc') return capB - capA;
+      if (sortMode === 'confidence_desc') return confB - confA;
+      return 0;
+    });
+
+    renderGrid(filtered);
+  }
+
+  // ---------- EVENTS ----------
+  searchInput.addEventListener('input', updateView);
+  sortSelect.addEventListener('change', updateView);
+  filterFuzzy.addEventListener('change', updateView);
+  filterPot.addEventListener('change', updateView);
 });
