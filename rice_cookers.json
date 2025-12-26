@@ -504,7 +504,7 @@
     "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
     "design": { "color": "White", "width_in": 10.0, "height_in": 9.0, "depth_in": 10.0 },
     "analysis": { "confidence": 5, "complaints": ["Timer is loud", "Very specific use case (Tahdig)"] }
-  }.
+  },
   {
     "id": "zojirushi-ns-lgc05",
     "brand": "Zojirushi",
