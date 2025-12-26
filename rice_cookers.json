@@ -3,108 +3,506 @@
     "id": "zojirushi-ns-zcc10",
     "brand": "Zojirushi",
     "model": "NS-ZCC10",
-    "capacity": {
-      "value": 5.5,
-      "type": "uncooked_cups",
-      "raw_statement": "1.0L / 5.5 Cups Uncooked (Manual) vs 10 Cup (Retailer)",
-      "provenance": "explicit"
-    },
-    "technology": {
-      "has_fuzzy_logic": {
-        "value": true,
-        "provenance": "explicit"
-      },
-      "heating_type": "standard_plate"
-    },
-    "construction": {
-      "inner_pot_material": "nonstick_aluminum",
-      "is_inner_pot_removable": true,
-      "is_inner_lid_removable": true,
-      "dimensions": {
-        "height_in": 8.25,
-        "width_in": 10.0,
-        "depth_in": 13.0
-      }
-    },
-    "analysis": {
-      "aggregated_complaints": [
-        "Internal battery replacement requires soldering",
-        "Non-stick coating may flake after 3+ years"
-      ],
-      "confidence_score": 5,
-      "source_url": "https://www.zojirushi.com/app/product/nszcc"
-    }
+    "price": { "value": 205.00, "currency": "USD" },
+    "capacity": { "value": 5.5, "type": "uncooked_cups", "raw_statement": "5.5 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Neuro Fuzzy", "heating": "Electric Plate", "modes_count": 8, "modes_list": ["White", "Sushi", "Porridge", "Brown", "Sweet", "Mixed", "Rinse-Free", "Quick"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "White", "width_in": 10.1, "height_in": 8.1, "depth_in": 13.0 },
+    "analysis": { "confidence": 5, "complaints": ["Internal battery replacement difficult", "Slow cooking speed"] }
   },
   {
-    "id": "toshiba-6-cup-fuzzy",
+    "id": "zojirushi-np-nwc10",
+    "brand": "Zojirushi",
+    "model": "NP-NWC10",
+    "price": { "value": 485.00, "currency": "USD" },
+    "capacity": { "value": 5.5, "type": "uncooked_cups", "raw_statement": "5.5 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Pressure / AI", "heating": "Pressure Induction", "modes_count": 12, "modes_list": ["White", "Umami", "Mixed", "Sushi", "Jasmine", "Brown", "GABA Brown", "Steel Cut Oatmeal", "Quick", "Steam"] },
+    "features": { "removable_pot": true, "self_clean": true, "retractable_cord": true },
+    "design": { "color": "Black", "width_in": 10.1, "height_in": 8.6, "depth_in": 15.4 },
+    "analysis": { "confidence": 5, "complaints": ["Expensive", "Heavy"] }
+  },
+  {
+    "id": "zojirushi-nhs-06",
+    "brand": "Zojirushi",
+    "model": "NHS-06",
+    "price": { "value": 55.00, "currency": "USD" },
+    "capacity": { "value": 3, "type": "uncooked_cups", "raw_statement": "3 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Mechanical", "heating": "Electric Plate", "modes_count": 1, "modes_list": ["Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "White", "width_in": 7.5, "height_in": 7.1, "depth_in": 9.1 },
+    "analysis": { "confidence": 5, "complaints": ["Starch sputters out vent", "No keep warm"] }
+  },
+  {
+    "id": "tiger-jnp-s10u",
+    "brand": "Tiger",
+    "model": "JNP-S10U",
+    "price": { "value": 140.00, "currency": "USD" },
+    "capacity": { "value": 5.5, "type": "uncooked_cups", "raw_statement": "5.5 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Mechanical", "heating": "Electric Plate", "modes_count": 1, "modes_list": ["Cook/Keep Warm"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "Stainless Steel", "width_in": 10.7, "height_in": 10.3, "depth_in": 11.8 },
+    "analysis": { "confidence": 4, "complaints": ["Water pools on rim when opening", "Old school design"] }
+  },
+  {
+    "id": "tiger-jbv-a10u",
+    "brand": "Tiger",
+    "model": "JBV-A10U",
+    "price": { "value": 110.00, "currency": "USD" },
+    "capacity": { "value": 5.5, "type": "uncooked_cups", "raw_statement": "5.5 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 4, "modes_list": ["White", "Brown", "Slow Cook", "Tacook (Synchro)"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "White", "width_in": 10.6, "height_in": 8.4, "depth_in": 13.9 },
+    "analysis": { "confidence": 5, "complaints": ["No clock/timer display", "Hard to read water lines"] }
+  },
+  {
+    "id": "cuckoo-crp-p1009s",
+    "brand": "Cuckoo",
+    "model": "CRP-P1009S",
+    "price": { "value": 240.00, "currency": "USD" },
+    "capacity": { "value": 10, "type": "uncooked_cups", "raw_statement": "10 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Pressure / Fuzzy", "heating": "Heating Plate", "modes_count": 12, "modes_list": ["White", "GABA Rice", "Brown", "Glutinous", "Sushi", "Nu Rung Ji (Burnt Rice)"] },
+    "features": { "removable_pot": true, "self_clean": true, "retractable_cord": false },
+    "design": { "color": "Black/Copper", "width_in": 11.6, "height_in": 11.4, "depth_in": 15.5 },
+    "analysis": { "confidence": 5, "complaints": ["Voice guide is loud", "Complex menu system"] }
+  },
+  {
+    "id": "cuckoo-cr-0631f",
+    "brand": "Cuckoo",
+    "model": "CR-0631F",
+    "price": { "value": 110.00, "currency": "USD" },
+    "capacity": { "value": 6, "type": "uncooked_cups", "raw_statement": "6 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 6, "modes_list": ["White", "GABA", "Porridge", "Steam", "Slow Cook"] },
+    "features": { "removable_pot": true, "self_clean": true, "retractable_cord": false },
+    "design": { "color": "Pink/White", "width_in": 10.0, "height_in": 9.0, "depth_in": 13.0 },
+    "analysis": { "confidence": 4, "complaints": ["Manual translation is poor", "Pink color is polarizing"] }
+  },
+  {
+    "id": "aroma-arc-150sb",
+    "brand": "Aroma",
+    "model": "ARC-150SB",
+    "price": { "value": 40.00, "currency": "USD" },
+    "capacity": { "value": 10, "type": "uncooked_cups", "raw_statement": "20 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 3, "modes_list": ["White", "Brown", "Steam"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Black/Silver", "width_in": 10.8, "height_in": 11.2, "depth_in": 11.2 },
+    "analysis": { "confidence": 5, "complaints": ["Messy condensation catcher", "Non-stick flakes easily"] }
+  },
+  {
+    "id": "aroma-arc-914sbd",
+    "brand": "Aroma",
+    "model": "ARC-914SBD",
+    "price": { "value": 30.00, "currency": "USD" },
+    "capacity": { "value": 4, "type": "uncooked_cups", "raw_statement": "8 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 2, "modes_list": ["White", "Brown"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Silver", "width_in": 8.5, "height_in": 8.7, "depth_in": 9.3 },
+    "analysis": { "confidence": 4, "complaints": ["Splashes water", "Lid hinge breaks"] }
+  },
+  {
+    "id": "panasonic-sr-df101",
+    "brand": "Panasonic",
+    "model": "SR-DF101",
+    "price": { "value": 90.00, "currency": "USD" },
+    "capacity": { "value": 5, "type": "uncooked_cups", "raw_statement": "5 Cup Capacity", "provenance": "explicit" },
+    "tech": { "logic": "Fuzzy Logic", "heating": "Electric Plate", "modes_count": 4, "modes_list": ["White", "Brown", "Steam", "Porridge"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "White", "width_in": 10.2, "height_in": 7.8, "depth_in": 13.9 },
+    "analysis": { "confidence": 4, "complaints": ["No timer display", "Buttons wear out"] }
+  },
+  {
+    "id": "toshiba-trcs01",
     "brand": "Toshiba",
     "model": "TRCS01",
-    "capacity": {
-      "value": 6,
-      "type": "uncooked_cups",
-      "raw_statement": "12 cup Cooked / Capacity 6 Cups",
-      "provenance": "explicit"
-    },
-    "technology": {
-      "has_fuzzy_logic": {
-        "value": true,
-        "provenance": "explicit"
-      },
-      "heating_type": "standard_plate"
-    },
-    "construction": {
-      "inner_pot_material": "nonstick_aluminum",
-      "is_inner_pot_removable": true,
-      "is_inner_lid_removable": false,
-      "dimensions": {
-        "height_in": 8.34,
-        "width_in": 14.48,
-        "depth_in": 10.66
-      }
-    },
-    "analysis": {
-      "aggregated_complaints": [
-        "Inner pot becomes extremely hot (lacks handles)",
-        "Plastic steam tray"
-      ],
-      "confidence_score": 3,
-      "source_url": "https://www.toshiba-lifestyle.com/us/cooking-appliances/rice-cooker"
-    }
+    "price": { "value": 115.00, "currency": "USD" },
+    "capacity": { "value": 6, "type": "uncooked_cups", "raw_statement": "6 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Fuzzy Logic", "heating": "3D Heating", "modes_count": 7, "modes_list": ["White", "Brown", "Mixed", "Oats", "Porridge"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "White", "width_in": 10.6, "height_in": 8.3, "depth_in": 14.5 },
+    "analysis": { "confidence": 4, "complaints": ["Plastic steam vent"] }
+  },
+  {
+    "id": "toshiba-low-carb",
+    "brand": "Toshiba",
+    "model": "TRCS02",
+    "price": { "value": 130.00, "currency": "USD" },
+    "capacity": { "value": 5.5, "type": "uncooked_cups", "raw_statement": "5.5 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Fuzzy Logic", "heating": "Induction", "modes_count": 9, "modes_list": ["Low Carb", "White", "Brown", "Mixed", "Crispy Rice"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "Black", "width_in": 10.0, "height_in": 9.0, "depth_in": 13.0 },
+    "analysis": { "confidence": 4, "complaints": ["Low carb mode tastes watery", "Heavy"] }
   },
   {
     "id": "dash-mini-drcm200",
     "brand": "Dash",
     "model": "DRCM200",
-    "capacity": {
-      "value": 2,
-      "type": "uncooked_cups",
-      "raw_statement": "2 Cup Capacity",
-      "provenance": "explicit"
-    },
-    "technology": {
-      "has_fuzzy_logic": {
-        "value": false,
-        "provenance": "explicit"
-      },
-      "heating_type": "standard_plate"
-    },
-    "construction": {
-      "inner_pot_material": "nonstick_aluminum",
-      "is_inner_pot_removable": true,
-      "is_inner_lid_removable": false,
-      "dimensions": {
-        "height_in": 6.5,
-        "width_in": 8.0,
-        "depth_in": 6.5
-      }
-    },
-    "analysis": {
-      "aggregated_complaints": [
-        "Spits water from vent if overfilled",
-        "No keep warm timer"
-      ],
-      "confidence_score": 4,
-      "source_url": "https://bydash.com/products/mini-rice-cooker"
-    }
+    "price": { "value": 25.00, "currency": "USD" },
+    "capacity": { "value": 2, "type": "uncooked_cups", "raw_statement": "2 Cup", "provenance": "explicit" },
+    "tech": { "logic": "Mechanical", "heating": "Electric Plate", "modes_count": 1, "modes_list": ["Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Aqua/Red/White", "width_in": 8.0, "height_in": 6.5, "depth_in": 6.5 },
+    "analysis": { "confidence": 5, "complaints": ["Spits water", "Small capacity"] }
+  },
+  {
+    "id": "black-decker-rc506",
+    "brand": "Black+Decker",
+    "model": "RC506",
+    "price": { "value": 22.00, "currency": "USD" },
+    "capacity": { "value": 3, "type": "uncooked_cups", "raw_statement": "6 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Mechanical", "heating": "Electric Plate", "modes_count": 1, "modes_list": ["Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "White", "width_in": 10.0, "height_in": 8.0, "depth_in": 9.0 },
+    "analysis": { "confidence": 3, "complaints": ["Boils over easily", "Rice sticks to bottom"] }
+  },
+  {
+    "id": "black-decker-rc514",
+    "brand": "Black+Decker",
+    "model": "RC514",
+    "price": { "value": 32.00, "currency": "USD" },
+    "capacity": { "value": 7, "type": "uncooked_cups", "raw_statement": "14 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Mechanical", "heating": "Electric Plate", "modes_count": 1, "modes_list": ["Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "White", "width_in": 11.5, "height_in": 9.0, "depth_in": 11.5 },
+    "analysis": { "confidence": 3, "complaints": ["Lid feels cheap"] }
+  },
+  {
+    "id": "hamilton-beach-37548",
+    "brand": "Hamilton Beach",
+    "model": "37548",
+    "price": { "value": 50.00, "currency": "USD" },
+    "capacity": { "value": 15, "type": "uncooked_cups", "raw_statement": "30 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Mechanical", "heating": "Electric Plate", "modes_count": 1, "modes_list": ["Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Silver", "width_in": 13.0, "height_in": 13.0, "depth_in": 13.0 },
+    "analysis": { "confidence": 4, "complaints": ["Very large footprint", "Rice dries out on warm"] }
+  },
+  {
+    "id": "instant-pot-zest",
+    "brand": "Instant Pot",
+    "model": "Zest",
+    "price": { "value": 40.00, "currency": "USD" },
+    "capacity": { "value": 4, "type": "uncooked_cups", "raw_statement": "8 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 4, "modes_list": ["White", "Brown", "Oatmeal", "Steam"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Stainless Steel", "width_in": 8.5, "height_in": 9.0, "depth_in": 8.5 },
+    "analysis": { "confidence": 4, "complaints": ["Display can be dim"] }
+  },
+  {
+    "id": "yum-asia-panda",
+    "brand": "Yum Asia",
+    "model": "Panda",
+    "price": { "value": 110.00, "currency": "USD" },
+    "capacity": { "value": 3.5, "type": "uncooked_cups", "raw_statement": "0.63L", "provenance": "explicit" },
+    "tech": { "logic": "Fuzzy Logic", "heating": "Ceramic", "modes_count": 7, "modes_list": ["White", "Brown", "Steam", "Cake", "Slow Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "White/Black", "width_in": 9.5, "height_in": 8.0, "depth_in": 11.8 },
+    "analysis": { "confidence": 5, "complaints": ["Small for families"] }
+  },
+  {
+    "id": "yum-asia-sakura",
+    "brand": "Yum Asia",
+    "model": "Sakura",
+    "price": { "value": 150.00, "currency": "USD" },
+    "capacity": { "value": 8, "type": "uncooked_cups", "raw_statement": "1.5L", "provenance": "explicit" },
+    "tech": { "logic": "Fuzzy Logic", "heating": "Ceramic", "modes_count": 7, "modes_list": ["White", "Brown", "Steam", "Soup", "Yogurt", "Cake"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "Black/Silver", "width_in": 11.4, "height_in": 9.8, "depth_in": 15.3 },
+    "analysis": { "confidence": 5, "complaints": ["Display is not backlit"] }
+  },
+  {
+    "id": "greenpan-elite",
+    "brand": "GreenPan",
+    "model": "Elite",
+    "price": { "value": 180.00, "currency": "USD" },
+    "capacity": { "value": 8, "type": "uncooked_cups", "raw_statement": "16 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Fuzzy Logic", "heating": "Induction", "modes_count": 6, "modes_list": ["White", "Brown", "Quinoa", "Steel Cut Oats"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Blue Haze", "width_in": 10.5, "height_in": 9.5, "depth_in": 14.0 },
+    "analysis": { "confidence": 3, "complaints": ["Expensive", "Ceramic coating is fragile"] }
+  },
+  {
+    "id": "vitaclay-vm7900",
+    "brand": "VitaClay",
+    "model": "VM7900-8",
+    "price": { "value": 130.00, "currency": "USD" },
+    "capacity": { "value": 4, "type": "uncooked_cups", "raw_statement": "8 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Micom", "heating": "Clay Pot", "modes_count": 4, "modes_list": ["Rice", "Brown Rice", "Stew", "Soup"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Stainless/Clay", "width_in": 10.0, "height_in": 11.0, "depth_in": 10.5 },
+    "analysis": { "confidence": 4, "complaints": ["Clay pot breaks easily", "Needs careful washing"] }
+  },
+  {
+    "id": "breville-risotto",
+    "brand": "Breville",
+    "model": "BRC600XL",
+    "price": { "value": 130.00, "currency": "USD" },
+    "capacity": { "value": 10, "type": "uncooked_cups", "raw_statement": "20 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 5, "modes_list": ["Risotto", "Sauté", "Rice", "Steam", "Slow Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "Stainless Steel", "width_in": 12.5, "height_in": 10.0, "depth_in": 11.5 },
+    "analysis": { "confidence": 4, "complaints": ["Non-stick coating fails quickly", "Pricey for features"] }
+  },
+  {
+    "id": "oster-diamond-force",
+    "brand": "Oster",
+    "model": "DiamondForce",
+    "price": { "value": 25.00, "currency": "USD" },
+    "capacity": { "value": 3, "type": "uncooked_cups", "raw_statement": "6 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Mechanical", "heating": "Electric Plate", "modes_count": 1, "modes_list": ["Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Black", "width_in": 9.0, "height_in": 8.0, "depth_in": 8.5 },
+    "analysis": { "confidence": 3, "complaints": ["Lid rattles", "Runs hot"] }
+  },
+  {
+    "id": "buffalo-classic",
+    "brand": "Buffalo",
+    "model": "Classic",
+    "price": { "value": 160.00, "currency": "USD" },
+    "capacity": { "value": 5, "type": "uncooked_cups", "raw_statement": "5 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 4, "modes_list": ["White", "Brown", "Porridge"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "Stainless Steel", "width_in": 11.0, "height_in": 9.5, "depth_in": 11.0 },
+    "analysis": { "confidence": 3, "complaints": ["Stainless pot rice sticks", "Basic"] }
+  },
+  {
+    "id": "imusa-gau-00011",
+    "brand": "IMUSA",
+    "model": "GAU-00011",
+    "price": { "value": 18.00, "currency": "USD" },
+    "capacity": { "value": 1.5, "type": "uncooked_cups", "raw_statement": "3 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Mechanical", "heating": "Electric Plate", "modes_count": 1, "modes_list": ["Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "White", "width_in": 8.0, "height_in": 6.5, "depth_in": 6.5 },
+    "analysis": { "confidence": 4, "complaints": ["Burns rice bottom", "Very basic"] }
+  },
+  {
+    "id": "joseph-joseph-m-cuisine",
+    "brand": "Joseph Joseph",
+    "model": "M-Cuisine",
+    "price": { "value": 30.00, "currency": "USD" },
+    "capacity": { "value": 2, "type": "uncooked_cups", "raw_statement": "2 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Microwave", "heating": "Microwave", "modes_count": 1, "modes_list": ["Microwave"] },
+    "features": { "removable_pot": true, "self_clean": true, "retractable_cord": false },
+    "design": { "color": "Orange/White", "width_in": 8.0, "height_in": 6.0, "depth_in": 8.0 },
+    "analysis": { "confidence": 5, "complaints": ["Requires microwave", "Can be messy"] }
+  },
+  {
+    "id": "zojirushi-ns-tsc10",
+    "brand": "Zojirushi",
+    "model": "NS-TSC10",
+    "price": { "value": 165.00, "currency": "USD" },
+    "capacity": { "value": 5.5, "type": "uncooked_cups", "raw_statement": "5.5 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 8, "modes_list": ["White", "Mixed", "Porridge", "Sweet", "Brown", "Cake", "Steam"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "Stainless Brown", "width_in": 10.1, "height_in": 8.5, "depth_in": 14.0 },
+    "analysis": { "confidence": 5, "complaints": ["Takes longer than mechanical cookers"] }
+  },
+  {
+    "id": "zojirushi-np-hcc10",
+    "brand": "Zojirushi",
+    "model": "NP-HCC10",
+    "price": { "value": 290.00, "currency": "USD" },
+    "capacity": { "value": 5.5, "type": "uncooked_cups", "raw_statement": "5.5 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Induction", "heating": "Induction", "modes_count": 9, "modes_list": ["White", "Jasmine", "Mixed", "Sushi", "Porridge", "Brown", "GABA Brown"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Stainless Dark Gray", "width_in": 10.0, "height_in": 8.0, "depth_in": 14.0 },
+    "analysis": { "confidence": 5, "complaints": ["No retractable cord", "Fan noise"] }
+  },
+  {
+    "id": "tiger-jax-t10u",
+    "brand": "Tiger",
+    "model": "JAX-T10U",
+    "price": { "value": 150.00, "currency": "USD" },
+    "capacity": { "value": 5.5, "type": "uncooked_cups", "raw_statement": "5.5 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 4, "modes_list": ["Synchro-Cooking", "Plain", "Brown", "Slow Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Stainless Steel", "width_in": 10.1, "height_in": 8.2, "depth_in": 13.6 },
+    "analysis": { "confidence": 4, "complaints": ["Hard to clean inner lid"] }
+  },
+  {
+    "id": "tiger-jkt-d10u",
+    "brand": "Tiger",
+    "model": "JKT-D10U",
+    "price": { "value": 260.00, "currency": "USD" },
+    "capacity": { "value": 5.5, "type": "uncooked_cups", "raw_statement": "5.5 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Induction", "heating": "Induction", "modes_count": 12, "modes_list": ["Ultra", "Plain", "Chewy", "Jasmine", "Brown", "GABA", "Oatmeal", "Cake"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Black/Stainless", "width_in": 10.2, "height_in": 8.4, "depth_in": 13.9 },
+    "analysis": { "confidence": 5, "complaints": ["Complex display", "Expensive"] }
+  },
+  {
+    "id": "cuckoo-cr-0655f",
+    "brand": "Cuckoo",
+    "model": "CR-0655F",
+    "price": { "value": 90.00, "currency": "USD" },
+    "capacity": { "value": 6, "type": "uncooked_cups", "raw_statement": "6 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 5, "modes_list": ["White", "Brown", "Porridge", "Steam", "Baby Food"] },
+    "features": { "removable_pot": true, "self_clean": true, "retractable_cord": false },
+    "design": { "color": "Red/White", "width_in": 9.4, "height_in": 8.6, "depth_in": 12.7 },
+    "analysis": { "confidence": 5, "complaints": ["No handle for carrying", "Lid opens fast"] }
+  },
+  {
+    "id": "cuckoo-crp-rt0609f",
+    "brand": "Cuckoo",
+    "model": "CRP-RT0609F",
+    "price": { "value": 350.00, "currency": "USD" },
+    "capacity": { "value": 6, "type": "uncooked_cups", "raw_statement": "6 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Twin Pressure", "heating": "Pressure Induction", "modes_count": 10, "modes_list": ["High Pressure", "No Pressure", "White", "Brown", "GABA", "Steam"] },
+    "features": { "removable_pot": true, "self_clean": true, "retractable_cord": false },
+    "design": { "color": "White/Silver", "width_in": 10.5, "height_in": 10.2, "depth_in": 14.0 },
+    "analysis": { "confidence": 5, "complaints": ["Very expensive", "Heavy"] }
+  },
+  {
+    "id": "aroma-arc-363-1ngb",
+    "brand": "Aroma",
+    "model": "ARC-363-1NGB",
+    "price": { "value": 20.00, "currency": "USD" },
+    "capacity": { "value": 3, "type": "uncooked_cups", "raw_statement": "6 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Mechanical", "heating": "Electric Plate", "modes_count": 1, "modes_list": ["Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Black", "width_in": 8.0, "height_in": 8.0, "depth_in": 9.0 },
+    "analysis": { "confidence": 4, "complaints": ["Glass lid is fragile", "Sputters water"] }
+  },
+  {
+    "id": "aroma-professional-plus",
+    "brand": "Aroma",
+    "model": "ARC-5000SB",
+    "price": { "value": 50.00, "currency": "USD" },
+    "capacity": { "value": 10, "type": "uncooked_cups", "raw_statement": "20 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 12, "modes_list": ["Sauté", "Steam", "Slow Cook", "White", "Brown", "Quinoa"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Stainless Steel", "width_in": 11.2, "height_in": 11.0, "depth_in": 10.8 },
+    "analysis": { "confidence": 5, "complaints": ["Button labels wear off"] }
+  },
+  {
+    "id": "panasonic-sr-g06fg",
+    "brand": "Panasonic",
+    "model": "SR-G06FG",
+    "price": { "value": 45.00, "currency": "USD" },
+    "capacity": { "value": 3.3, "type": "uncooked_cups", "raw_statement": "3.3 Cup", "provenance": "explicit" },
+    "tech": { "logic": "Mechanical", "heating": "Electric Plate", "modes_count": 1, "modes_list": ["Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "Silver", "width_in": 9.6, "height_in": 7.8, "depth_in": 9.6 },
+    "analysis": { "confidence": 5, "complaints": ["Glass lid fragility", "Basic"] }
+  },
+  {
+    "id": "panasonic-sr-hz106",
+    "brand": "Panasonic",
+    "model": "SR-HZ106",
+    "price": { "value": 400.00, "currency": "USD" },
+    "capacity": { "value": 5, "type": "uncooked_cups", "raw_statement": "5 Cup", "provenance": "explicit" },
+    "tech": { "logic": "Induction", "heating": "Induction", "modes_count": 13, "modes_list": ["White", "Brown", "Multi-Grain", "Quinoa", "Sticky", "Steam"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Black/Silver", "width_in": 10.2, "height_in": 8.2, "depth_in": 12.6 },
+    "analysis": { "confidence": 5, "complaints": ["Expensive", "Large"] }
+  },
+  {
+    "id": "instant-pot-zest-plus",
+    "brand": "Instant Pot",
+    "model": "Zest Plus",
+    "price": { "value": 60.00, "currency": "USD" },
+    "capacity": { "value": 10, "type": "uncooked_cups", "raw_statement": "20 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 9, "modes_list": ["White", "Brown", "Oatmeal", "Quinoa", "Barley", "Couscous", "Steam"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Stainless Steel", "width_in": 11.3, "height_in": 11.5, "depth_in": 11.2 },
+    "analysis": { "confidence": 5, "complaints": ["Inner pot is thin"] }
+  },
+  {
+    "id": "mi-smart-rice-cooker",
+    "brand": "Xiaomi",
+    "model": "Mi Induction",
+    "price": { "value": 110.00, "currency": "USD" },
+    "capacity": { "value": 3, "type": "uncooked_cups", "raw_statement": "3 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Smart / App", "heating": "Induction", "modes_count": 100, "modes_list": ["Custom App Modes", "White", "Brown"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "White", "width_in": 9.8, "height_in": 8.0, "depth_in": 11.8 },
+    "analysis": { "confidence": 4, "complaints": ["App region locking issues", "Requires Wi-Fi for full features"] }
+  },
+  {
+    "id": "crux-gg-collection",
+    "brand": "Crux",
+    "model": "GG Collection",
+    "price": { "value": 60.00, "currency": "USD" },
+    "capacity": { "value": 8, "type": "uncooked_cups", "raw_statement": "16 Cup Cooked", "provenance": "inferred" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 6, "modes_list": ["White", "Brown", "Slow Cook", "Steam"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Matte Grey", "width_in": 10.5, "height_in": 10.0, "depth_in": 11.0 },
+    "analysis": { "confidence": 3, "complaints": ["Form over function", "Coating wears"] }
+  },
+  {
+    "id": "comfee-asian-style",
+    "brand": "COMFEE'",
+    "model": "MB-FS5077",
+    "price": { "value": 55.00, "currency": "USD" },
+    "capacity": { "value": 5, "type": "uncooked_cups", "raw_statement": "5.2 Qt (10 cup cooked approx)", "provenance": "inferred" },
+    "tech": { "logic": "Fuzzy Logic", "heating": "Electric Plate", "modes_count": 6, "modes_list": ["White", "Brown", "Steam", "Slow Cook", "Soup", "Stew"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Gold/Black", "width_in": 10.8, "height_in": 9.5, "depth_in": 14.0 },
+    "analysis": { "confidence": 4, "complaints": ["Confusing manual", "Lid latch fails"] }
+  },
+  {
+    "id": "t-fal-rk705851",
+    "brand": "T-fal",
+    "model": "RK705851",
+    "price": { "value": 85.00, "currency": "USD" },
+    "capacity": { "value": 10, "type": "uncooked_cups", "raw_statement": "10 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Fuzzy Logic", "heating": "Electric Plate", "modes_count": 12, "modes_list": ["Rice", "Risotto", "Reheat", "Oatmeal", "Slow Cook", "Steam"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "White", "width_in": 11.0, "height_in": 10.0, "depth_in": 15.0 },
+    "analysis": { "confidence": 4, "complaints": ["Condensation dripping", "Large size"] }
+  },
+  {
+    "id": "cuckoo-cr-0351f",
+    "brand": "Cuckoo",
+    "model": "CR-0351F",
+    "price": { "value": 95.00, "currency": "USD" },
+    "capacity": { "value": 3, "type": "uncooked_cups", "raw_statement": "3 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Fuzzy Logic", "heating": "Electric Plate", "modes_count": 5, "modes_list": ["Glutinous", "Brown", "Steam", "Porridge"] },
+    "features": { "removable_pot": true, "self_clean": true, "retractable_cord": false },
+    "design": { "color": "Red", "width_in": 8.9, "height_in": 8.4, "depth_in": 11.5 },
+    "analysis": { "confidence": 5, "complaints": ["Very small (1-2 people only)"] }
+  },
+  {
+    "id": "zojirushi-nl-bac05",
+    "brand": "Zojirushi",
+    "model": "NL-BAC05",
+    "price": { "value": 145.00, "currency": "USD" },
+    "capacity": { "value": 3, "type": "uncooked_cups", "raw_statement": "3 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 6, "modes_list": ["White", "Brown", "Long Grain", "Steel Cut Oatmeal", "Quinoa", "Cake"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "Silver/Black", "width_in": 9.1, "height_in": 7.5, "depth_in": 11.9 },
+    "analysis": { "confidence": 5, "complaints": ["Expensive for 3-cup", "Slow"] }
+  },
+  {
+    "id": "tiger-jax-s10u",
+    "brand": "Tiger",
+    "model": "JAX-S10U",
+    "price": { "value": 130.00, "currency": "USD" },
+    "capacity": { "value": 5.5, "type": "uncooked_cups", "raw_statement": "5.5 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Micom", "heating": "Electric Plate", "modes_count": 4, "modes_list": ["Synchro-Cook", "Plain", "Brown", "Slow Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "Stainless", "width_in": 10.1, "height_in": 8.2, "depth_in": 13.6 },
+    "analysis": { "confidence": 4, "complaints": ["Vent is hard to clean"] }
+  },
+  {
+    "id": "tiger-jnp-1800",
+    "brand": "Tiger",
+    "model": "JNP-1800",
+    "price": { "value": 150.00, "currency": "USD" },
+    "capacity": { "value": 10, "type": "uncooked_cups", "raw_statement": "10 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Mechanical", "heating": "Electric Plate", "modes_count": 1, "modes_list": ["Cook"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": true },
+    "design": { "color": "Floral/White", "width_in": 11.8, "height_in": 11.0, "depth_in": 11.7 },
+    "analysis": { "confidence": 5, "complaints": ["Retro design not for everyone", "Basic"] }
+  },
+  {
+    "id": "pars-automatic",
+    "brand": "Pars",
+    "model": "DRC-2200",
+    "price": { "value": 75.00, "currency": "USD" },
+    "capacity": { "value": 7, "type": "uncooked_cups", "raw_statement": "7 Cups", "provenance": "explicit" },
+    "tech": { "logic": "Mechanical", "heating": "Electric Plate", "modes_count": 1, "modes_list": ["Crispy Rice (Tahdig)"] },
+    "features": { "removable_pot": true, "self_clean": false, "retractable_cord": false },
+    "design": { "color": "White", "width_in": 10.0, "height_in": 9.0, "depth_in": 10.0 },
+    "analysis": { "confidence": 5, "complaints": ["Timer is loud", "Very specific use case (Tahdig)"] }
   }
 ]
