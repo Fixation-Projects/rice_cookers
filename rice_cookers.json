@@ -1,0 +1,110 @@
+[
+  {
+    "id": "zojirushi-ns-zcc10",
+    "brand": "Zojirushi",
+    "model": "NS-ZCC10",
+    "capacity": {
+      "value": 5.5,
+      "type": "uncooked_cups",
+      "raw_statement": "1.0L / 5.5 Cups Uncooked (Manual) vs 10 Cup (Retailer)",
+      "provenance": "explicit"
+    },
+    "technology": {
+      "has_fuzzy_logic": {
+        "value": true,
+        "provenance": "explicit"
+      },
+      "heating_type": "standard_plate"
+    },
+    "construction": {
+      "inner_pot_material": "nonstick_aluminum",
+      "is_inner_pot_removable": true,
+      "is_inner_lid_removable": true,
+      "dimensions": {
+        "height_in": 8.25,
+        "width_in": 10.0,
+        "depth_in": 13.0
+      }
+    },
+    "analysis": {
+      "aggregated_complaints": [
+        "Internal battery replacement requires soldering",
+        "Non-stick coating may flake after 3+ years"
+      ],
+      "confidence_score": 5,
+      "source_url": "https://www.zojirushi.com/app/product/nszcc"
+    }
+  },
+  {
+    "id": "toshiba-6-cup-fuzzy",
+    "brand": "Toshiba",
+    "model": "TRCS01",
+    "capacity": {
+      "value": 6,
+      "type": "uncooked_cups",
+      "raw_statement": "12 cup Cooked / Capacity 6 Cups",
+      "provenance": "explicit"
+    },
+    "technology": {
+      "has_fuzzy_logic": {
+        "value": true,
+        "provenance": "explicit"
+      },
+      "heating_type": "standard_plate"
+    },
+    "construction": {
+      "inner_pot_material": "nonstick_aluminum",
+      "is_inner_pot_removable": true,
+      "is_inner_lid_removable": false,
+      "dimensions": {
+        "height_in": 8.34,
+        "width_in": 14.48,
+        "depth_in": 10.66
+      }
+    },
+    "analysis": {
+      "aggregated_complaints": [
+        "Inner pot becomes extremely hot (lacks handles)",
+        "Plastic steam tray"
+      ],
+      "confidence_score": 3,
+      "source_url": "https://www.toshiba-lifestyle.com/us/cooking-appliances/rice-cooker"
+    }
+  },
+  {
+    "id": "dash-mini-drcm200",
+    "brand": "Dash",
+    "model": "DRCM200",
+    "capacity": {
+      "value": 2,
+      "type": "uncooked_cups",
+      "raw_statement": "2 Cup Capacity",
+      "provenance": "explicit"
+    },
+    "technology": {
+      "has_fuzzy_logic": {
+        "value": false,
+        "provenance": "explicit"
+      },
+      "heating_type": "standard_plate"
+    },
+    "construction": {
+      "inner_pot_material": "nonstick_aluminum",
+      "is_inner_pot_removable": true,
+      "is_inner_lid_removable": false,
+      "dimensions": {
+        "height_in": 6.5,
+        "width_in": 8.0,
+        "depth_in": 6.5
+      }
+    },
+    "analysis": {
+      "aggregated_complaints": [
+        "Spits water from vent if overfilled",
+        "No keep warm timer"
+      ],
+      "confidence_score": 4,
+      "source_url": "https://bydash.com/products/mini-rice-cooker"
+    }
+  }
+]
