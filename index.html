@@ -1,64 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rice Cooker Index | Fixation Projects</title>
-     <link rel="stylesheet" href="./style.css">
-    <script src="./app.js" defer></script>
+  <meta charset="UTF-8" />
+  <title>Rice Cooker Comparison Tool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./style.css" />
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <h1>Rice Cooker Index</h1>
-            <p class="subtitle">A static, privacy-preserving comparison database.</p>
-        </div>
-    </header>
+  <header>
+    <h1>Rice Cooker Comparison</h1>
+    <p>Filter and sort rice cookers using explicit AND logic.</p>
+  </header>
 
-    <main class="container">
-        <aside class="controls">
-            <div class="control-group">
-                <h3>Search</h3>
-                <input type="text" id="searchInput" placeholder="Search brand or model...">
-            </div>
+  <!-- FILTERS -->
+  <section id="filters">
 
-            <div class="control-group">
-                <h3>Sort By</h3>
-                <select id="sortSelect">
-                    <option value="default">Default</option>
-                    <option value="capacity_asc">Capacity (Small to Large)</option>
-                    <option value="capacity_desc">Capacity (Large to Small)</option>
-                    <option value="confidence_desc">Data Confidence (High to Low)</option>
-                </select>
-            </div>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search brand or model"
+    />
 
-            <div class="control-group">
-                <h3>Filters</h3>
-                <label class="checkbox-label">
-                    <input type="checkbox" id="filterFuzzy"> Fuzzy Logic Only
-                </label>
-                <label class="checkbox-label">
-                    <input type="checkbox" id="filterPot"> Removable Inner Pot
-                </label>
-            </div>
-            
-            <div class="control-group">
-                <small><em>Data cached: <span id="dataTimestamp">Loading...</span></em></small>
-            </div>
-        </aside>
+    <select id="filterRemovable">
+      <option value="">Removable Pot (Any)</option>
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
 
-        <section id="resultsGrid" class="grid">
-            <div class="loading">Loading database...</div>
-        </section>
-    </main>
+    <select id="filterLogic">
+      <option value="">Logic Technology (Any)</option>
+      <option value="Fuzzy">Fuzzy</option>
+      <option value="Neural">Neural</option>
+      <option value="Mechanical">Mechanical</option>
+    </select>
 
-    <footer>
-        <div class="container">
-            <p>Maintained by <a href="https://github.com/Fixation-Projects">Fixation Projects</a>.</p>
-            <p><a href="https://github.com/Fixation-Projects/rice-cookers/issues/new">Suggest a Correction</a></p>
-        </div>
-    </footer>
+    <select id="filterSelfClean">
+      <option value="">Self Clean (Any)</option>
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select>
 
-    <script src="app.js"></script>
+    <select id="sortSelect">
+      <option value="">Sort By</option>
+      <option value="price_asc">Price (Low → High)</option>
+      <option value="price_desc">Price (High → Low)</option>
+      <option value="cooked_desc">Cooked Cups (High → Low)</option>
+      <option value="uncooked_desc">Uncooked Cups (High → Low)</option>
+      <option value="confidence_desc">Confidence (High → Low)</option>
+    </select>
+
+  </section>
+
+  <!-- RESULTS -->
+  <main>
+    <div id="resultsGrid"></div>
+  </main>
+
+  <!-- Script -->
+  <script src="./app.js"></script>
 </body>
 </html>

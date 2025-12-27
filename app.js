@@ -1,29 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('resultsGrid');
+
   const searchInput = document.getElementById('searchInput');
+  const filterRemovable = document.getElementById('filterRemovable');
+  const filterLogic = document.getElementById('filterLogic');
+  const filterSelfClean = document.getElementById('filterSelfClean');
   const sortSelect = document.getElementById('sortSelect');
-  const filterFuzzy = document.getElementById('filterFuzzy');
-  const filterPot = document.getElementById('filterPot');
 
   let db = [];
 
   // ---------- LOAD DATA ----------
   fetch('./rice_cookers.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`Failed to load JSON: ${response.status}`);
-      }
-      return response.json();
+    .then(res => {
+      if (!res.ok) throw new Error('Failed to load JSON');
+      return res.json();
     })
     .then(data => {
-      // IMPORTANT: data is now an object, not an array
       db = Array.isArray(data.items) ? data.items : [];
-
-      const ts = document.getElementById('dataTimestamp');
-      if (ts) {
-        ts.textContent = new Date().toLocaleDateString();
-      }
-
       updateView();
     })
     .catch(err => {
@@ -44,17 +37,33 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('div');
       card.className = 'card';
 
-      const capacity = item.capacity?.value ?? 'Unknown';
-      const capacityUnit = item.capacity?.unit ?? '';
-      const fuzzy = item.features?.fuzzy_logic ? 'Yes' : 'No';
-      const removablePot = item.features?.removable_pot ? 'Yes' : 'No';
+      const cooked = item.capacity?.cooked ?? '—';
+      const uncooked = item.capacity?.uncooked ?? '—';
+
+      const removable = item.features?.removable_pot ? 'Yes' : 'No';
+      const logic = item.features?.logic_type ?? '—';
+      const selfClean = item.features?.self_clean ? 'Yes' : 'No';
+
+      const price =
+        item.price?.min != null && item.price?.max != null
+          ? `$${item.price.min}–$${item.price.max}`
+          : '—';
+
+      const topComplaint = item.analysis?.complaints?.[0] ?? '—';
       const confidence = item.analysis?.confidence ?? '—';
 
       card.innerHTML = `
         <h3>${item.brand ?? ''} ${item.model ?? ''}</h3>
-        <p><strong>Capacity:</strong> ${capacity} ${capacityUnit}</p>
-        <p><strong>Fuzzy Logic:</strong> ${fuzzy}</p>
-        <p><strong>Removable Pot:</strong> ${removablePot}</p>
+
+        <p><strong>Cooked:</strong> ${cooked} cups</p>
+        <p><strong>Uncooked:</strong> ${uncooked} cups</p>
+
+        <p><strong>Removable Pot:</strong> ${removable}</p>
+        <p><strong>Logic:</strong> ${logic}</p>
+        <p><strong>Self Clean:</strong> ${selfClean}</p>
+
+        <p><strong>Price:</strong> ${price}</p>
+        <p><strong>Top Complaint:</strong> ${topComplaint}</p>
         <p><strong>Confidence:</strong> ${confidence}</p>
       `;
 
@@ -62,41 +71,74 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---------- FILTER + SORT ----------
-  function updateView() {
+  // ---------- SORT ----------
+  function sortItems(items, mode) {
+    const get = (o, path, d = 0) =>
+      path.reduce((x, k) => (x && x[k] != null ? x[k] : null), o) ?? d;
+
+    return items.sort((a, b) => {
+      switch (mode) {
+        case 'price_asc':
+          return get(a, ['price', 'min']) - get(b, ['price', 'min']);
+        case 'price_desc':
+          return get(b, ['price', 'min']) - get(a, ['price', 'min']);
+        case 'cooked_desc':
+          return get(b, ['capacity', 'cooked']) - get(a, ['capacity', 'cooked']);
+        case 'uncooked_desc':
+          return get(b, ['capacity', 'uncooked']) - get(a, ['capacity', 'uncooked']);
+        case 'confidence_desc':
+          return get(b, ['analysis', 'confidence']) - get(a, ['analysis', 'confidence']);
+        default:
+          return 0;
+      }
+    });
+  }
+
+  // ---------- AND FILTER LOGIC ----------
+  function passesFilters(item) {
     const query = searchInput.value.toLowerCase();
-    const sortMode = sortSelect.value;
 
-    let filtered = db.filter(item => {
-      const text =
-        `${item.brand ?? ''} ${item.model ?? ''}`.toLowerCase();
+    if (query) {
+      const text = `${item.brand ?? ''} ${item.model ?? ''}`.toLowerCase();
+      if (!text.includes(query)) return false;
+    }
 
-      if (query && !text.includes(query)) return false;
-      if (filterFuzzy.checked && !item.features?.fuzzy_logic) return false;
-      if (filterPot.checked && !item.features?.removable_pot) return false;
+    if (filterRemovable.value !== '') {
+      const expected = filterRemovable.value === 'true';
+      if (item.features?.removable_pot !== expected) return false;
+    }
 
-      return true;
-    });
+    if (filterLogic.value !== '') {
+      if (item.features?.logic_type !== filterLogic.value) return false;
+    }
 
-    filtered.sort((a, b) => {
-      const capA = a.capacity?.value ?? 0;
-      const capB = b.capacity?.value ?? 0;
+    if (filterSelfClean.value !== '') {
+      const expected = filterSelfClean.value === 'true';
+      if (item.features?.self_clean !== expected) return false;
+    }
 
-      const confA = a.analysis?.confidence ?? 0;
-      const confB = b.analysis?.confidence ?? 0;
+    return true; // PASSED ALL FILTERS
+  }
 
-      if (sortMode === 'capacity_asc') return capA - capB;
-      if (sortMode === 'capacity_desc') return capB - capA;
-      if (sortMode === 'confidence_desc') return confB - confA;
-      return 0;
-    });
+  // ---------- UPDATE ----------
+  function updateView() {
+    let filtered = db.filter(passesFilters);
+
+    if (sortSelect.value) {
+      filtered = sortItems(filtered, sortSelect.value);
+    }
 
     renderGrid(filtered);
   }
 
   // ---------- EVENTS ----------
+  [
+    searchInput,
+    filterRemovable,
+    filterLogic,
+    filterSelfClean,
+    sortSelect
+  ].forEach(el => el.addEventListener('change', updateView));
+
   searchInput.addEventListener('input', updateView);
-  sortSelect.addEventListener('change', updateView);
-  filterFuzzy.addEventListener('change', updateView);
-  filterPot.addEventListener('change', updateView);
 });
